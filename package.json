@@ -1,6 +1,6 @@
 {
   "name": "@kuura/hetu-validator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A TypeScript library to validate Finnish Personal Identity Codes (Henkilötunnus/HETU).",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
