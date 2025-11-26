@@ -2,14 +2,29 @@
   "name": "@kuura/hetu-validator",
   "version": "1.0.0",
   "description": "A TypeScript library to validate Finnish Personal Identity Codes (Henkilötunnus/HETU).",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
   "files": [
     "dist"
   ],
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf dist && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --project tsconfig.cjs.json && echo '{\"type\": \"commonjs\"}' > dist/cjs/package.json",
     "test": "tsc --noemit && vitest run",
     "prepublishOnly": "npm run build"
   },

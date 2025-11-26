@@ -3,7 +3,7 @@
     "target": "es2022",
     "module": "NodeNext",
     "declaration": true,
-    "outDir": "./dist",
+    "outDir": "./dist/esm",
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
